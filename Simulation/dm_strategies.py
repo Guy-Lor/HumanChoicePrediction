@@ -111,7 +111,7 @@ def topic_based(positive_topics, negative_topics, quality_threshold):
     return func
 
 
-def LLM_based(is_stochastic, is_high_range_stochastic):
+def LLM_based(is_stochastic=False, is_high_range_stochastic=False):
     with open(f"data/baseline_proba2go.txt", 'r') as file:
         proba2go = json.load(file)
         proba2go = {int(k): v for k, v in proba2go.items()}
