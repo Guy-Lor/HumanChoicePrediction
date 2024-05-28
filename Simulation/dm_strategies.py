@@ -111,7 +111,7 @@ def topic_based(positive_topics, negative_topics, quality_threshold):
     return func
 
 
-def LLM_based(is_stochastic):
+def LLM_based(is_stochastic, is_high_range_stochastic):
     with open(f"data/baseline_proba2go.txt", 'r') as file:
         proba2go = json.load(file)
         proba2go = {int(k): v for k, v in proba2go.items()}
@@ -121,6 +121,13 @@ def LLM_based(is_stochastic):
             review_llm_score = proba2go[information["review_id"]]
             return int(np.random.rand() <= review_llm_score)
         return func
+    
+    elif is_high_range_stochastic:
+        def func(information):
+            review_llm_score = proba2go[information["review_id"]]
+            return int(np.random.uniform(0.5,0.9) <= review_llm_score)
+        return func
+        
     else:
         def func(information):
             review_llm_score = proba2go[information["review_id"]]
