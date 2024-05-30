@@ -251,6 +251,7 @@ class OnlineSimulationDataSet(Dataset):
                             4: ("LLM stochastic (Language-based)",  basic_nature[3], user_strategies.LLM_based(is_stochastic=True)),
                             5: ("LLM deterministic", basic_nature[4], user_strategies.LLM_based(is_stochastic=False)),
                             6: ("LLM high range stochastic (Language-based)",  basic_nature[5], user_strategies.LLM_based(is_stochastic=False, is_high_range_stochastic=True)),
+                            7: ("Sentiment ratio based",  basic_nature[6], user_strategies.sentiment_ratio_based()),
                             }
             self.nature = np.random.rand(len(self.ACTIONS)) * np.array([v[1] for v in self.ACTIONS.values()])
             self.nature = self.nature / sum(self.nature)

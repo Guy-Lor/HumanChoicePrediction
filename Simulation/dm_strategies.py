@@ -1,6 +1,6 @@
 import numpy as np
 import json
-
+import pandas as pd
 ################################
 # CONSTS
 ################################
@@ -9,8 +9,19 @@ REVIEWS = 0
 BOT_ACTION = 1
 USER_DECISION = 2
 
-
+combined_reviews_with_sentiment_scores = pd.read_csv('/home/student/project/HumanChoicePrediction/RunningScripts/combined_reviews_with_sentiment_scores.csv')
 ################################
+
+def sentiment_ratio_based(ratio_threshold = 2.8469387755102042 ):
+    def func(information):
+        review_id = information['review_id']
+        review_good_bad_ratio = combined_reviews_with_sentiment_scores.loc[combined_reviews_with_sentiment_scores['ID']==int(review_id), 'good_to_bad_ratio'].item()
+        if  review_good_bad_ratio>=ratio_threshold:
+            return 1
+        else:
+            return 0
+    return func
+
 
 def correct_action(information):
     if information["hotel_value"] >= 8:
