@@ -15,8 +15,18 @@ combined_reviews_with_sentiment_scores = pd.read_csv('/home/student/project/Huma
 def sentiment_ratio_based(ratio_threshold = 2.8469387755102042 ):
     def func(information):
         review_id = information['review_id']
-        review_good_bad_ratio = combined_reviews_with_sentiment_scores.loc[combined_reviews_with_sentiment_scores['ID']==int(review_id), 'good_to_bad_ratio'].item()
-        if  review_good_bad_ratio>=ratio_threshold:
+        review_good_bad_sentiment_ratio = combined_reviews_with_sentiment_scores.loc[combined_reviews_with_sentiment_scores['ID']==int(review_id), 'positive_to_negative_sentiment_ratio'].item()
+        if  review_good_bad_sentiment_ratio>=ratio_threshold:
+            return 1
+        else:
+            return 0
+    return func
+
+def length_ratio_based(ratio_threshold = 0.8163265306122449):
+    def func(information):
+        review_id = information['review_id']
+        review_good_bad_length_ratio = combined_reviews_with_sentiment_scores.loc[combined_reviews_with_sentiment_scores['ID']==int(review_id), 'positive_to_negative_length_ratio'].item()
+        if  review_good_bad_length_ratio>=ratio_threshold:
             return 1
         else:
             return 0
