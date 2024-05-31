@@ -241,6 +241,9 @@ class OnlineSimulationDataSet(Dataset):
                 negative_topics = np.array(negative_topics)
                 np.random.shuffle(negative_topics)
 
+            self.user_preference_vec = np.random.rand(5)
+            self.user_preference_vec = self.user_preference_vec/ sum(self.user_preference_vec)
+
             self.ACTIONS = {0: ("correct - oracle", 0, user_strategies.correct_action),
                             1: ("random", basic_nature[0], user_strategies.random_action),
                             2: ("history_and_review_quality (Trustful)", basic_nature[1],
@@ -253,6 +256,7 @@ class OnlineSimulationDataSet(Dataset):
                             6: ("LLM high range stochastic (Language-based)",  basic_nature[5], user_strategies.LLM_based(is_stochastic=False, is_high_range_stochastic=True)),
                             7: ("Sentiment ratio based",  basic_nature[6], user_strategies.sentiment_ratio_based()),
                             8: ("Length ratio based",  basic_nature[7], user_strategies.length_ratio_based()),
+                            9: ("User prefered hotel metrices ",  basic_nature[8], user_strategies.user_prefered_hotel_metrices(user_vec=self.user_preference_vec, threshold=0.0)),
 
                             }
             self.nature = np.random.rand(len(self.ACTIONS)) * np.array([v[1] for v in self.ACTIONS.values()])
