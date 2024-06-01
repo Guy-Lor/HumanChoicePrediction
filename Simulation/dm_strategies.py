@@ -1,6 +1,7 @@
 import numpy as np
 import json
 import pandas as pd
+import pickle
 ################################
 # CONSTS
 ################################
@@ -9,14 +10,16 @@ REVIEWS = 0
 BOT_ACTION = 1
 USER_DECISION = 2
 
-df_per_hotel_reviews_scores = pd.read_csv('/home/student/project/HumanChoicePrediction/RunningScripts/df_per_hotel_reviews_scores.csv')
+# df_per_hotel_reviews_scores = pd.read_csv('/home/student/project/HumanChoicePrediction/RunningScripts/df_per_hotel_reviews_scores.csv')
+with open('/home/student/project/HumanChoicePrediction/RunningScripts/data_dict.pkl', 'rb') as f:
+    dict_loaded_results = pickle.load(f)
 
 ################################
 
 def sentiment_ratio_based(ratio_threshold = 2.8469387755102042 ):
     def func(information):
         review_id = information['review_id']
-        review_good_bad_sentiment_ratio = df_per_hotel_reviews_scores.loc[df_per_hotel_reviews_scores['ID']==int(review_id), 'positive_to_negative_sentiment_ratio'].item()
+        review_good_bad_sentiment_ratio = dict_loaded_results['positive_to_negative_sentiment_ratio'][review_id]
         if  review_good_bad_sentiment_ratio>=ratio_threshold:
             return 1
         else:
@@ -26,7 +29,7 @@ def sentiment_ratio_based(ratio_threshold = 2.8469387755102042 ):
 def length_ratio_based(ratio_threshold = 0.8163265306122449):
     def func(information):
         review_id = information['review_id']
-        review_good_bad_length_ratio = df_per_hotel_reviews_scores.loc[df_per_hotel_reviews_scores['ID']==int(review_id), 'positive_to_negative_length_ratio'].item()
+        review_good_bad_length_ratio = dict_loaded_results['positive_to_negative_length_ratio'][review_id]
         if  review_good_bad_length_ratio>=ratio_threshold:
             return 1
         else:
@@ -38,8 +41,8 @@ def user_prefered_hotel_metrices(user_vec, threshold=0.0):
 
     def func(information):
         review_id = information['review_id']
-        hotel_metrices_vector = df_per_hotel_reviews_scores.loc[df_per_hotel_reviews_scores['ID']==int(review_id), 'hotel_metrices_vector'].item()
-        hotel_metrices_vector = np.array(json.loads(hotel_metrices_vector))
+        hotel_metrices_vector = dict_loaded_results['hotel_metrices_vector'][review_id]
+        # hotel_metrices_vector = np.array(json.loads(hotel_metrices_vector))
         sum_vec = user_vec @ hotel_metrices_vector
         if  sum_vec > threshold:
             return 1
