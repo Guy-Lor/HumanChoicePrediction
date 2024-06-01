@@ -9,15 +9,14 @@ REVIEWS = 0
 BOT_ACTION = 1
 USER_DECISION = 2
 
-combined_reviews_with_sentiment_scores = pd.read_csv('/home/student/project/HumanChoicePrediction/RunningScripts/combined_reviews_with_sentiment_scores.csv')
-hotel_metrices_vectors = pd.read_csv('/home/student/project/HumanChoicePrediction/RunningScripts/')
+df_per_hotel_reviews_scores = pd.read_csv('/home/student/project/HumanChoicePrediction/RunningScripts/df_per_hotel_reviews_scores.csv')
 
 ################################
 
 def sentiment_ratio_based(ratio_threshold = 2.8469387755102042 ):
     def func(information):
         review_id = information['review_id']
-        review_good_bad_sentiment_ratio = combined_reviews_with_sentiment_scores.loc[combined_reviews_with_sentiment_scores['ID']==int(review_id), 'positive_to_negative_sentiment_ratio'].item()
+        review_good_bad_sentiment_ratio = df_per_hotel_reviews_scores.loc[df_per_hotel_reviews_scores['ID']==int(review_id), 'positive_to_negative_sentiment_ratio'].item()
         if  review_good_bad_sentiment_ratio>=ratio_threshold:
             return 1
         else:
@@ -27,7 +26,7 @@ def sentiment_ratio_based(ratio_threshold = 2.8469387755102042 ):
 def length_ratio_based(ratio_threshold = 0.8163265306122449):
     def func(information):
         review_id = information['review_id']
-        review_good_bad_length_ratio = combined_reviews_with_sentiment_scores.loc[combined_reviews_with_sentiment_scores['ID']==int(review_id), 'positive_to_negative_length_ratio'].item()
+        review_good_bad_length_ratio = df_per_hotel_reviews_scores.loc[df_per_hotel_reviews_scores['ID']==int(review_id), 'positive_to_negative_length_ratio'].item()
         if  review_good_bad_length_ratio>=ratio_threshold:
             return 1
         else:
@@ -39,10 +38,11 @@ def user_prefered_hotel_metrices(user_vec, threshold=0.0):
 
     def func(information):
         review_id = information['review_id']
-        hotel_metrices_vector = hotel_metrices_vectors.loc[hotel_metrices_vectors['ID']==int(review_id), 'hotel_metrices_vector'].item()
-        weight_vec = user_vec * hotel_metrices_vector
+        hotel_metrices_vector = df_per_hotel_reviews_scores.loc[df_per_hotel_reviews_scores['ID']==int(review_id), 'hotel_metrices_vector'].item()
+        hotel_metrices_vector = np.array(json.loads(hotel_metrices_vector))
+        weight_vec = user_vec * df_per_hotel_reviews_scores
         sum_vec = sum(weight_vec)
-        if  sum_vec >= threshold:
+        if  sum_vec > threshold:
             return 1
         else:
             return 0
