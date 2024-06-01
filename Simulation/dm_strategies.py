@@ -40,8 +40,7 @@ def user_prefered_hotel_metrices(user_vec, threshold=0.0):
         review_id = information['review_id']
         hotel_metrices_vector = df_per_hotel_reviews_scores.loc[df_per_hotel_reviews_scores['ID']==int(review_id), 'hotel_metrices_vector'].item()
         hotel_metrices_vector = np.array(json.loads(hotel_metrices_vector))
-        weight_vec = user_vec * df_per_hotel_reviews_scores
-        sum_vec = sum(weight_vec)
+        sum_vec = user_vec @ hotel_metrices_vector
         if  sum_vec > threshold:
             return 1
         else:
