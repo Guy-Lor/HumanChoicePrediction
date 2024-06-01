@@ -241,7 +241,7 @@ class OnlineSimulationDataSet(Dataset):
                 negative_topics = np.array(negative_topics)
                 np.random.shuffle(negative_topics)
 
-            self.user_preference_vec = np.random.rand(5)
+            self.user_preference_vec = np.random.rand(8)
             self.user_preference_vec = self.user_preference_vec/ sum(self.user_preference_vec)
 
             self.ACTIONS = {0: ("correct - oracle", 0, user_strategies.correct_action),
