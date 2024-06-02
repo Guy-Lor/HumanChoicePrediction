@@ -11,7 +11,7 @@ BOT_ACTION = 1
 USER_DECISION = 2
 
 # df_per_hotel_reviews_scores = pd.read_csv('/home/student/project/HumanChoicePrediction/RunningScripts/df_per_hotel_reviews_scores.csv')
-with open('/home/student/project/HumanChoicePrediction/data/data_dict.pkl', 'rb') as f:
+with open('/home/student/project/HumanChoicePrediction/data/data_scores_dict.pkl', 'rb') as f:
     dict_loaded_results = pickle.load(f)
 
 ################################
