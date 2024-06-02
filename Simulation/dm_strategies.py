@@ -11,7 +11,7 @@ BOT_ACTION = 1
 USER_DECISION = 2
 
 # df_per_hotel_reviews_scores = pd.read_csv('/home/student/project/HumanChoicePrediction/RunningScripts/df_per_hotel_reviews_scores.csv')
-with open('/home/student/project/HumanChoicePrediction/RunningScripts/data_dict.pkl', 'rb') as f:
+with open('/home/student/project/HumanChoicePrediction/data/data_dict.pkl', 'rb') as f:
     dict_loaded_results = pickle.load(f)
 
 ################################
@@ -42,7 +42,6 @@ def user_prefered_hotel_metrices(user_vec, threshold=0.0):
     def func(information):
         review_id = information['review_id']
         hotel_metrices_vector = dict_loaded_results['hotel_metrices_vector'][review_id]
-        # hotel_metrices_vector = np.array(json.loads(hotel_metrices_vector))
         sum_vec = user_vec @ hotel_metrices_vector
         if  sum_vec > threshold:
             return 1
