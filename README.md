@@ -61,7 +61,7 @@ To reproduce the results, run the three added Jupyter notebooks to generate the 
             
    3. **Create reviews categories vectors**
       
-      This Jupyter notebook analyzes customer reviews by sending them to OpenAI's ChatGPT-3.5 turbo model, which assesses the presence of 8 predefined topics: cleanliness, comfort, service, food, location, facilities, maintenance, and value for money. It takes as          input combined_reviews_with_sentiment_scores.csv, which includes each hotel review's positive and negative sentiment scores, review lengths, and sentiment and review length ratios. The notebook outputs *df_per_hotel_reviews_scores.csv*, containing all the data          from the input file along with a vector for each review representing the predefined topics.
+      This Jupyter notebook analyzes customer reviews by sending them to OpenAI's ChatGPT-3.5 turbo model, which assesses the presence of 8 predefined topics: cleanliness, comfort, service, food, location, facilities, maintenance, and value for money. It takes as          input *combined_reviews_with_sentiment_scores.csv*, which includes each hotel review's positive and negative sentiment scores, review lengths, and sentiment and review length ratios. The notebook outputs *df_per_hotel_reviews_scores.csv*, containing all the data          from the input file along with a vector for each review representing the predefined topics.
       
    5. **Convert score df to dict pickle**
          
