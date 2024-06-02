@@ -8,7 +8,7 @@ In this project we aim to enhance user simulation and add more strategies, based
 The code is forked from the papers repository: https://github.com/eilamshapira/HumanChoicePrediction
 
 1. Getting Started
-2. Run project
+2. Reproduce Results
 3. Citation
    
 ## 1. Getting Started 
@@ -68,13 +68,13 @@ To reproduce the results, run the three added Jupyter notebooks to generate the 
       This Jupyter notebook optimizes project runtime by processing the *df_per_hotel_reviews_scores.csv* file to extract and save only the IDs, ratios and topic vectors of each review. It converts this data into a dictionary format and stores it as a pickle file named *data_scores_dict.pkl* for efficient access.
 ### Run Sweep
 
-   To run the sweep, execute final_sweep_Guy-lor.py. This will create a project in Weights & Biases. Copy the printed command(s) and run them in the terminal.
+   To run the sweep, execute *final_sweep_Guy-lor.py*. This will create a project in Weights & Biases. Copy the printed command(s) and run them in the terminal.
 
 ### Analyze Results
 
    Execute the modified *analyze_results.ipynb* and input your Weights & Biases (wandb) username, project name, and sweep ID. The notebook functions will then analyze the results and output the mean accuracy along with the confidence interval for the chosen hyper-parameters.
 
-## Citation
+## 3. Citation
 
 If you find this work useful, please cite our paper:
 
