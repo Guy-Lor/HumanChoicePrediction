@@ -1,4 +1,4 @@
-name: final_project_env
+name: final_project_env_Guy-lor
 channels:
   - conda-forge
   - defaults
@@ -152,4 +152,4 @@ dependencies:
       - wandb==0.17.0
       - yarl==1.9.4
       - zipp==3.18.2
-prefix: /anaconda/envs/final_project_env
+prefix: /anaconda/envs/final_project_env_Guy-lor
