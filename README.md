@@ -48,7 +48,7 @@ To install and run the code on your local machine, follow these steps:
 
     Then, use the following command to create a conda environment from the requirements.yml file provided in the project:
     ```bash
-    conda env create -f final_project_env.yml
+    conda env create -f final_project_env_Guy-lor.yml
     ```
 3. **Log in to Weights & Biases (W&B)**
 
