@@ -32,37 +32,15 @@ command = [
 #     "command": command
 # }
 
-# sweep_config = {
-#     "name": "All 3 strategies added. Check double weight of added strategies",
-#     "method": "grid",
-#     "metric": {
-#         "goal": "maximize",
-#         "name": "AUC.test.max"
-#     },
-#     "parameters": {
-#         "ENV_HPT_mode": {"values": [True]},
-#         "architecture": {"values": ["LSTM"]},
-#         "seed": {"values": list(range(1, 6))},
-#         # "seed": {"values": list(range(1, 2))},
-#         # "online_simulation_factor": {"values": [0, 4]},
-#         "online_simulation_factor": {"values": [4]},
-#         # "features": {"values": ["EFs", "GPT4", "BERT"]},
-#         "features": {"values": ["EFs"]},
-#         "basic_nature": {"values": [23, 24, 25, 26]},
-#         "simulation_user_improve": {"values":[0.01, 0.05]}
-#     },
-#     "command": command
-# }
-
 sweep_config = {
-    "name": "Final sweep, with HPT=False",
+    "name": "All 3 strategies added. Check double weight of added strategies",
     "method": "grid",
     "metric": {
         "goal": "maximize",
         "name": "AUC.test.max"
     },
     "parameters": {
-        "ENV_HPT_mode": {"values": [False]},
+        "ENV_HPT_mode": {"values": [True]},
         "architecture": {"values": ["LSTM"]},
         "seed": {"values": list(range(1, 6))},
         # "seed": {"values": list(range(1, 2))},
@@ -70,11 +48,33 @@ sweep_config = {
         "online_simulation_factor": {"values": [4]},
         # "features": {"values": ["EFs", "GPT4", "BERT"]},
         "features": {"values": ["EFs"]},
-        "basic_nature": {"values": [17, 20, 26]},
-        "simulation_user_improve": {"values":[0.05]}
+        "basic_nature": {"values": [23, 24, 25, 26]},
+        "simulation_user_improve": {"values":[0.01, 0.05]}
     },
     "command": command
 }
+
+# sweep_config = {
+#     "name": "Final sweep, with HPT=False",
+#     "method": "grid",
+#     "metric": {
+#         "goal": "maximize",
+#         "name": "AUC.test.max"
+#     },
+#     "parameters": {
+#         "ENV_HPT_mode": {"values": [False]},
+#         "architecture": {"values": ["LSTM"]},
+#         "seed": {"values": list(range(1, 6))},
+#         # "seed": {"values": list(range(1, 2))},
+#         # "online_simulation_factor": {"values": [0, 4]},
+#         "online_simulation_factor": {"values": [4]},
+#         # "features": {"values": ["EFs", "GPT4", "BERT"]},
+#         "features": {"values": ["EFs"]},
+#         "basic_nature": {"values": [17, 20, 26]},
+#         "simulation_user_improve": {"values":[0.05]}
+#     },
+#     "command": command
+# }
 
 # Initialize a new sweep
 sweep_id = wandb.sweep(sweep=sweep_config, project=project)
