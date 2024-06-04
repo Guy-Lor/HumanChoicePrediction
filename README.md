@@ -4,20 +4,22 @@ This project is done as a part of NLP course and is based on the paper "Human Ch
 
 Our project aims to enhance the accuracy of predicting human choices by improving the simulation of human decision-making processes. Current models use three primary simulation strategies, plus an “Oracle,” but these cannot fully capture the complexity of human decision-making. We reviewed scholarly articles on cognitive processes and decision-making behaviors to develop updated simulation strategies. By employing real decision-making strategies like loss aversion, we aim to create more accurate simulations. Experiments will validate our approach, expected to improve user choice prediction. we added 3 new strategies and the notebooks output the needed data and hyperparameters for creating the new strategies.
 
-Strategy 1: Sentiment Ratio Analysis Using TripAdvisor Data
+**Strategy 1**: Sentiment Ratio Analysis Using TripAdvisor Data
 We calulated the positive to negative ratio using sentiment scores to reflect the DM's loss aversion behavior.
 
-Strategy 2: Semantic Counter Strategy
+**Strategy 2**: Semantic Counter Strategy
 We calculated the ratio of positive to total words and negative to total words to analyze the sentiment balance.
 
-Strategy 3: Aspect-Based Sentiment Analysis
+**Strategy 3**: Aspect-Based Sentiment Analysis
 We divided reviews into eight aspects, generated binary vectors for positive and negative mentions, and scored reviews based on DM-specific preferences
 
 The code is forked from the papers repository: https://github.com/eilamshapira/HumanChoicePrediction
 
-1. Getting Started
-2. Reproduce Results
+## This file will cover:
+1. Getting Started - based on the original repository
+2. Reproduce Results - <ins>**specific to this project**</ins>
 3. Citation
+
    
 ## 1. Getting Started 
 
@@ -48,7 +50,7 @@ To install and run the code on your local machine, follow these steps:
 
     Then, use the following command to create a conda environment from the requirements.yml file provided in the project:
     ```bash
-    conda env create -f final_project_env.yml
+    conda env create -f final_project_env_Guy-lor.yml
     ```
 3. **Log in to Weights & Biases (W&B)**
 
