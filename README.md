@@ -2,7 +2,6 @@
 
 This project is done as a part of NLP course and is based on the paper "Human Choice Prediction in Language-based Persuasion Games: Simulation-based Off-Policy Evaluation" (Eilam Shapira and Reut Apel and Moshe Tennenholtz and Roi Reichart).
 
-TODO: WRITE HIGH LEVEL SUMMARY OF WHAT WE WANT TO DO IN THE PROJECT. WHAT ARE THE STRATEGIES WE ADDED AND EXPLAINING THEM SHORTLY. 
 Our project aims to enhance the accuracy of predicting human choices by improving the simulation of human decision-making processes. Current models use three primary simulation strategies, plus an “Oracle,” but these cannot fully capture the complexity of human decision-making. We reviewed scholarly articles on cognitive processes and decision-making behaviors to develop updated simulation strategies. By employing real decision-making strategies like loss aversion, we aim to create more accurate simulations. Experiments will validate our approach, expected to improve user choice prediction. we added 3 new strategies and the notebooks output the needed data and hyperparameters for creating the new strategies.
 
 Strategy 1: Sentiment Ratio Analysis Using TripAdvisor Data
