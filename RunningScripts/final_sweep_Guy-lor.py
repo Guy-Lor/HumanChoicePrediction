@@ -55,7 +55,7 @@ sweep_config = {
 }
 
 sweep_config = {
-    "name": "Final sweep with HPT=False",
+    "name": "Final sweep, with HPT=False",
     "method": "grid",
     "metric": {
         "goal": "maximize",
@@ -71,7 +71,7 @@ sweep_config = {
         # "features": {"values": ["EFs", "GPT4", "BERT"]},
         "features": {"values": ["EFs"]},
         "basic_nature": {"values": [17, 20, 26]},
-        "simulation_user_improve": {"values":[0.01]}
+        "simulation_user_improve": {"values":[0.05]}
     },
     "command": command
 }
