@@ -1,6 +1,8 @@
 # cloning your code from github:
-git clone https://github.com/eilamshapira/NLP_project.git
-
+git clone https://github.com/Guy-Lor/HumanChoicePrediction.git
+cd HumanChoicePrediction
+conda env create -f final_project_env.yml
+conda activate final_project_env
 # Your main sweep:
 python final_sweep_Guy-lor.py
 
