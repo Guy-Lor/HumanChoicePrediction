@@ -2,9 +2,9 @@
 git clone https://github.com/Guy-Lor/HumanChoicePrediction.git
 cd HumanChoicePrediction
 
-conda env create -f final_project_env_Guy-lor.yml
-conda activate final_project_env_Guy-lor
-wandb login
+# conda env create -f final_project_env_Guy-lor.yml
+# conda activate final_project_env_Guy-lor
+# wandb login
 # Your main sweep:
 python final_sweep_Guy-lor.py
 
