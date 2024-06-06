@@ -7,10 +7,10 @@ Our project aims to enhance the accuracy of predicting human choices by improvin
 **Strategy 1**: Sentiment Ratio Analysis Using TripAdvisor Data
 We calulated the positive to negative ratio using sentiment scores to reflect the DM's loss aversion behavior.
 
-**Strategy 2**: Semantic Counter Strategy
+**Strategy 2**: Semantic Length Strategy
 We calculated the ratio of positive to total words and negative to total words to analyze the sentiment balance.
 
-**Strategy 3**: Aspect-Based Sentiment Analysis
+**Strategy 3**: User Preference Vectors
 We divided reviews into eight aspects, generated binary vectors for positive and negative mentions, and scored reviews based on DM-specific preferences
 
 The code is forked from the papers repository: https://github.com/eilamshapira/HumanChoicePrediction
