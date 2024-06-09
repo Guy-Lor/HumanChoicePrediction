@@ -1,5 +1,5 @@
 # cloning your code from github:
-git clone https://github.com/eilamshapira/NLP_project.git
+git clone https://github.com/Guy-Lor/HumanChoicePrediction.git
 
 # Your main sweep:
 python final_sweep_Guy-lor.py
